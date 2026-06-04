@@ -133,8 +133,7 @@ export default function App() {
     }
   });
 
-  const [isSubmitted, setIsSubmitted] = useState(() => {
-    return localStorage.getItem('skansen_submitted') === 'true';
+  const [isSubmitted, setIsSubmitted] = useState(false);
   });
 
   const [validationErrors, setValidationErrors] = useState({});
@@ -404,15 +403,14 @@ export default function App() {
           /* ======================================= */
           /* 2. LIVE-FORMULÄR (Fylls i av elever)     */
           /* ======================================= */
-          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
-            
+<div className="space-y-3 sm:space-y-4">            
             {/* LIVE KATEGORI- & POÄNGMÄTARE (Supermobil-optimerad) */}
             <div className="sticky top-2 sm:top-4 bg-stone-900 text-white p-3 sm:p-4 rounded-2xl shadow-xl z-20 space-y-2 border border-stone-800">
               <div className="flex justify-between items-center gap-3">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-sm font-bold text-white shrink-0">🏆</div>
                   <div>
-                    <div className="font-extrabold text-xs sm:text-sm">Poängjakt: Minst 20p</div>
+                    <div className="font-extrabold text-xs sm:text-sm">Möjliga poäng: samla så mycket ni hinner</div>
                     <div className="text-[9px] sm:text-[10px] text-emerald-300 flex items-center gap-1 font-semibold leading-tight">
                       <Info size={10} className="shrink-0 text-emerald-400" />
                       <span>Stavfel gör inget!</span>
@@ -426,8 +424,7 @@ export default function App() {
 
               {/* Tydligt meddelande om att poängen är preliminära */}
               <div className="text-[9px] sm:text-[10px] text-emerald-300 italic font-medium pt-1 border-t border-stone-800 leading-tight">
-                ⚠️ Poängen är preliminära och kan justeras av läraren efter genomläsning.
-              </div>
+⚠️ Poängen är preliminära. Läraren rättar efteråt. Tomma, korta eller oseriösa svar ger 0 poäng.              </div>
 
               {/* Spårningsikoner per kategori */}
               <div className="pt-1.5 border-t border-stone-800">
@@ -594,23 +591,9 @@ export default function App() {
               );
             })}
 
-            {/* Inlämningsknapp */}
-            <div className="pt-2">
-              <button
-                type="submit"
-                className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base sm:text-lg rounded-2xl shadow-lg transition-all"
-              >
-                Lämna in svar (Slutför jakten) 🏁
-              </button>
-              {!allCategoriesMet && (
-                <p className="text-center text-[10px] sm:text-xs font-bold text-amber-600 mt-2">
-                  ⚠️ Ni måste besvara minst ett uppdrag från varje kategori innan ni kan spara och visa läraren.
-                </p>
-              )}
-            </div>
+            
 
-          </form>
-        )}
+</div>        )}
 
       </main>
     </div>
