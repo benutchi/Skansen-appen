@@ -134,7 +134,7 @@ export default function App() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
-  });
+
 
   const [validationErrors, setValidationErrors] = useState({});
   const [toastMessage, setToastMessage] = useState(null);
