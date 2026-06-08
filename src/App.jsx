@@ -410,7 +410,7 @@ export default function App() {
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-sm font-bold text-white shrink-0">🏆</div>
                   <div>
-                    <div className="font-extrabold text-xs sm:text-sm">Möjliga poäng: samla så mycket ni hinner</div>
+                    <div className="font-extrabold text-xs sm:text-sm">Besvara så många uppdrag ni hinner</div>
                     <div className="text-[9px] sm:text-[10px] text-emerald-300 flex items-center gap-1 font-semibold leading-tight">
                       <Info size={10} className="shrink-0 text-emerald-400" />
                       <span>Stavfel gör inget!</span>
@@ -418,13 +418,15 @@ export default function App() {
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="font-mono font-black text-sm sm:text-base text-yellow-300">{currentPoints} / {maxPoints} p</span>
+                 <span className="font-mono font-black text-sm sm:text-base text-yellow-300">
+  {Object.keys(answers).filter(key => answers[key]?.trim()).length} / 10 uppdrag
+</span>
                 </div>
               </div>
 
               {/* Tydligt meddelande om att poängen är preliminära */}
               <div className="text-[9px] sm:text-[10px] text-emerald-300 italic font-medium pt-1 border-t border-stone-800 leading-tight">
-⚠️ Poängen är preliminära. Läraren rättar efteråt. Tomma, korta eller oseriösa svar ger 0 poäng.              </div>
+⚠️ Läraren rättar svaren efteråt. Tomma, korta eller oseriösa svar ger inga poäng.              </div>
 
               {/* Spårningsikoner per kategori */}
               <div className="pt-1.5 border-t border-stone-800">
